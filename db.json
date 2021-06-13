@@ -1,0 +1,73 @@
+{
+  "time": [
+    {
+      "id": 1,
+      "imagem": "santos",
+      "nomeTime": "Santos Futebol Clube",
+      "fundacao": "02/05/1912",
+      "corPrimaria": "blue",
+      "favorito": false
+    },
+    {
+      "id": 2,
+      "imagem": "sao_paulo",
+      "nomeTime": "São Paulo Futebol Clube",
+      "fundacao": "02/05/1910",
+      "corPrimaria": "red",
+      "favorito": false
+    },
+    {
+      "id": 3,
+      "imagem": "corinthians",
+      "nomeTime": "Sport Club Corinthians Paulista",
+      "fundacao": "02/05/1910",
+      "corPrimaria": "purple",
+      "favorito": false
+    },
+    {
+      "id": 4,
+      "imagem": "palmeiras",
+      "nomeTime": "Sociedade Esportiva Palmeiras",
+      "fundacao": "02/05/1913",
+      "corPrimaria": "green",
+      "favorito": false
+    },
+    {
+      "id": 5,
+      "imagem": "flamengo",
+      "nomeTime": "Clube de Regatas Flamengo",
+      "fundacao": "02/05/1800",
+      "corPrimaria": "red",
+      "favorito": true
+    }
+  ],
+  "noticia": [
+    {
+      "id": 1,
+      "titulo": "Noticia 1",
+      "conteudo": "Conteudo da noticia 1 Conteudo da noticia 1 Conteudo da noticia 1 Conteudo da noticia 1Conteudo da noticia 1",
+      "data": "07/06/2021",
+      "time": {
+        "id": 1
+      }
+    },
+    {
+      "id": 2,
+      "titulo": "Noticia 2",
+      "conteudo": "Conteudo da noticia 2 noticia 2noticia 2 noticia 2 noticia 2 Conteudo da noticia 1 Conteudo da noticia 1 Conteudo da noticia 1Conteudo da noticia 1",
+      "data": "07/06/2021",
+      "time": {
+        "id": 1
+      }
+    },
+    {
+      "id": 3,
+      "titulo": "Noticia 323",
+      "conteudo": "Conteudo daas dlçfjgsgjaejgh lerjghelg çgh",
+      "data": "01/06/2021",
+      "time": {
+        "id": 2
+      }
+    }
+  ]
+}

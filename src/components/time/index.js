@@ -1,20 +1,59 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { Avatar, Card, ListItem } from "@material-ui/core";
+import { Card, ListItem } from "@material-ui/core";
 
-// import santos from "./santos.png";
+import { EscudoTime } from "../../styles/escudoTime";
+
+import StarIcon from "@material-ui/icons/Star";
+import StarBorderIcon from "@material-ui/icons/StarBorder";
+import timeService from "../../services/timeService";
 
 export default function Time(props) {
+  let [time, setTime] = useState({ ...props });
+
+  const RatingFavorite = () => {
+    async function handleOnClickFavorite(favorito) {
+      await setTime({ ...time, favorito });
+    }
+
+    async function updateRatingFavorite() {
+      if (time.favorito != props.favorito) {
+        await timeService.atualizarTime(time);
+        props.handleAlteracaoTime ? props.handleAlteracaoTime(true) : null;
+      }
+    }
+
+    useEffect(async () => {
+      updateRatingFavorite();
+    }, [time.favorito]);
+
+    return !props.naoMarcarFavorito ? (
+      time.favorito ? (
+        <StarIcon
+          onClick={(event) => {
+            event.preventDefault();
+            handleOnClickFavorite(false);
+          }}
+        />
+      ) : (
+        <StarBorderIcon
+          onClick={(event) => {
+            event.preventDefault();
+            handleOnClickFavorite(true);
+          }}
+        />
+      )
+    ) : null;
+  };
+
   return (
     <>
       <Card>
-        <img alt={props.imagem.toUpperCase()} src={`static/images/${props.imagem}.png`} />
-
-        <ListItem>
-          Nome: {props.nomeTime} - {props.imagem}
-        </ListItem>
+        <EscudoTime alt={props.imagem.toUpperCase()} src={`/static/images/${props.imagem}.png`} />
+        <ListItem>Nome: {props.nomeTime}</ListItem>
         <ListItem>Fundacao: {props.fundacao}</ListItem>
         <ListItem>COR: {props.corPrimaria}</ListItem>
+        <RatingFavorite />
       </Card>
     </>
   );
@@ -25,4 +64,7 @@ Time.propTypes = {
   fundacao: PropTypes.string,
   corPrimaria: PropTypes.string,
   imagem: PropTypes.string,
+  naoMarcarFavorito: PropTypes.bool,
+  favorito: PropTypes.bool,
+  handleAlteracaoTime: PropTypes.func,
 };
